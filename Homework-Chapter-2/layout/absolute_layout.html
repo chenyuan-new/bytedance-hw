@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Absolute layout</title>
+    <style>
+        body {
+            font: 100%;
+            background: #666666;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            color: #000;
+        }
+        
+        .container {
+            position: relative;
+            width: 780px;
+            background: #fff;
+            margin: 0 auto;
+            border: 1px solid #000;
+            text-align: left;
+        }
+        
+        main {
+            margin: 0 200px;
+            padding: 0 10px;
+        }
+        
+        .sidebar1 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 150px;
+            background: #ebebeb;
+            padding: 15px 10px 15px 20px;
+        }
+        
+        .sidebar2 {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 160px;
+            background: #ebebeb;
+            padding: 15px 10px 15px 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <main>
+            <h1> 主要内容 </h1>
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Praesent aliquam, justo convallis luctus rutrum, erat nulla fermentum diam, at nonummy quam ante ac quam. Maecenas urna purus, fermentum id, molestie in, commodo porttitor, felis. Nam
+                blandit quam ut lacus. Quisque ornare risus quis ligula. Phasellus tristique purus a augue condimentum adipiscing. Aenean sagittis. Etiam leo pede, rhoncus venenatis, tristique in, vulputate at, odio. Donec et ipsum et sapien vehicula
+                nonummy. Suspendisse potenti. </p>
+            <h2>H2 级别的标题 </h2>
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Praesent aliquam, justo convallis luctus rutrum, erat nulla fermentum diam, at nonummy quam ante ac quam. Maecenas urna purus, fermentum id, molestie in, commodo porttitor, felis. Nam
+                blandit quam ut lacus. Quisque ornare risus quis ligula. Phasellus tristique purus a augue condimentum adipiscing. Aenean sagittis. Etiam leo pede, rhoncus venenatis, tristique in, vulputate at, odio.</p>
+        </main>
+        <div class="sidebar1">
+            <h3>Sidebar1 </h3>
+            <p>此 div 上所显示的背景色刚好与内容等宽。如果您喜欢改用分界线，而且 #mainContent div 将始终包含较多的内容，请在 #mainContent div 的左边缘放置一个边框。 </p>
+            <p>Donec eu mi sed turpis feugiat feugiat. Integer turpis arcu, pellentesque eget, cursus et, fermentum ut, sapien. </p>
+        </div>
+        <div class="sidebar2">
+            <h3>Sidebar2 </h3>
+            <p>此 div 上所显示的背景色刚好与内容等宽。如果您喜欢改用分界线，而且 #mainContent div 将始终包含较多的内容，请在 #mainContent div 的右边缘放置一个边框。 </p>
+            <p>Donec eu mi sed turpis feugiat feugiat. Integer turpis arcu, pellentesque eget, cursus et, fermentum ut, sapien. </p>
+        </div>
+    </div>
+</body>
+
+</html>
