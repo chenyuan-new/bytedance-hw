@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>toDoList</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <div class="main">
+        <h1>TO-DO LIST</h1>
+        <form class="" action="index.html" method="post" name="fm">
+            <input type="text" placeholder="new task" name="task">
+            <button type="submit"><strong>ADD</strong></button>
+        </form>
+        <div class="tasksBoard" style="display: block;">
+            <ul>
+            </ul>
+            <a id="clear">Clear</a>
+        </div>
+    </div>
+
+
+
+    <script>
+        function addToDo(input) {
+            const todo = {
+                input,
+                checked: false,
+                id: Date.now(),
+            };
+            renderToDo(todo);
+        }
+
+        const form = document.querySelector("form");
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            const inpt = document.querySelector("input");
+            input = inpt.value.trim();
+            if (input !== "") {
+                addToDo(input);
+                inpt.value = "";
+                inpt.focus();
+            }
+        })
+
+        function renderToDo(todo) {
+            const list = document.querySelector("ul");
+
+            const isChecked = todo.checked ? "done" : "";
+            const node = document.createElement("li");
+            node.innerHTML = `
+            <span class="delete">&times;</span>
+            <input type="checkbox">
+            <span class="${isChecked}">${todo.input}</span>`;
+            list.append(node);
+        }
+
+        const ul = document.querySelector("ul");
+        ul.addEventListener("click", e => {
+            if (e.target.className === "delete") {
+                e.target.parentNode.style.display = "none";
+            }
+            if (e.target.tagName === "INPUT") {
+                if (e.target.nextElementSibling.className === "done") {
+                    e.target.nextElementSibling.className = "";
+                    console.log(e.target.nextElementSibling.className);
+                } else {
+                    e.target.nextElementSibling.className = "done";
+                    console.log(e.target.nextElementSibling.className);
+                }
+            }
+        })
+
+        // clear
+        const clear = document.querySelector("#clear");
+        clear.addEventListener("click", e => {
+            let lst = document.querySelector("ul");
+            console.log(lst);
+            lst.innerHTML = "";
+        })
+    </script>
+</body>
+
+</html>
