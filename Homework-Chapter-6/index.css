@@ -1,0 +1,127 @@
+html,
+body {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+}
+main {
+  display: flex;
+  flex: auto;
+}
+aside {
+  display: flex;
+  flex: 0 0 40px;
+}
+aside ul {
+  display: flex;
+  flex: auto;
+  flex-direction: column;
+  background-color: #f2f2f2;
+  align-items: center;
+  justify-content: space-around;
+}
+main section {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+}
+.musicHead {
+  display: flex;
+  padding: 40px;
+  background-color: #4e4e4e;
+}
+.cover {
+  flex: auto;
+  padding-left: 50px;
+  flex-direction: column;
+  color: #f4f3f2;
+  font-weight: 300;
+}
+.cover div:nth-child(1) {
+  margin-bottom: auto;
+}
+.cover div:nth-child(1) p:first-child {
+  font-size: 1.8em;
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+.cover div:nth-child(1) p:not(:first-child) {
+  font-size: 0.9em;
+  margin: 5px 0;
+}
+.cover div:nth-child(2) li {
+  font-size: 0.9em;
+  margin: 0 0.7em;
+  font-weight: 300;
+}
+.musicList {
+  flex: 1 0 auto;
+  padding: 5px 10px;
+}
+.musicList li {
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  min-height: 50px;
+}
+.musicList li:nth-child(2n) {
+  background-color: #f2f2f2;
+}
+.musicList li p {
+  flex: 25%;
+}
+.musicList li p span {
+  border: 1px solid #212121;
+  font-size: 0.6em;
+  padding: 3px;
+}
+footer {
+  display: flex;
+  color: #fff;
+  background-color: rgba(61, 100, 158, 0.9);
+}
+.song {
+  display: flex;
+  flex: 2;
+}
+.info {
+  padding: 10px;
+}
+.info p {
+  font-size: 1.25em;
+  margin-bottom: 10px;
+}
+.controls {
+  flex: 1;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+@media screen and (max-width: 64em) {
+  .hide {
+    display: none;
+  }
+  .text-right {
+    text-align: right;
+  }
+  .musicHead {
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 0;
+  }
+  .musicHead img {
+    width: 150px;
+  }
+  .cover {
+    padding: 0;
+  }
+  .cover div:nth-child(1) p:first-child {
+    margin: 20px 0;
+    font-size: 1em;
+  }
+  .musicList p {
+    flex: 50%;
+  }
+}
