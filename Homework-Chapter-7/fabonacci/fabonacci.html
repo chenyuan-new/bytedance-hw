@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .stick {
+            width: 100px;
+            height: 4px;
+            background: #f50;
+            animation-name: rotate;
+            animation-duration: 0.7s;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes rotate {
+            0% {
+                height: 4px;
+            }
+
+            50% {
+                height: 100px;
+            }
+
+            100% {
+                height: 4px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div><button type="button">start calc</button></div>
+
+    <div><input type="number" /></div>
+    <div class="log"></div>
+
+    <div class="stick"></div>
+
+    <script>
+        const btn=document.querySelector('button');
+        const input=document.querySelector('input');
+
+        // using web worker to create non block function
+        const work=new Worker('./work.js');
+
+        btn.addEventListener('click', () => {
+            const n=Number(input.value);
+            print('Waiting...');
+            const now=Date.now();
+            work.postMessage(n);
+            let res=0;
+            work.addEventListener('message', function (e) {
+                res=Number(e.data);
+                const costInMs=Date.now()-now;
+                print(`Result: ${res} in ${costInMs}ms`);
+            }, false);
+
+        });
+
+        function fibonacci1(n) {
+            if (n<=2) {
+                return 1;
+            }
+            let i=2;
+            let prev=1
+            let cur=1;
+            while (i<=n) {
+                const temp=cur;
+                cur=cur+prev;
+                prev=temp;
+                i++;
+            }
+            return cur;
+        }
+
+        function fibonacci2(n) {
+            if (n<=2) {
+                return 1;
+            }
+            // window.requestAnimationFrame(fibonacci2);
+            return fibonacci2(n-1)+fibonacci2(n-2);
+        }
+
+        const log=document.querySelector('.log');
+        function print(str) {
+            log.innerText=str;
+        }
+
+        function* fibonacci3(n) {
+            if (n<=2) {
+                return 1;
+            }
+            let i=2;
+            let prev=1
+            let cur=1;
+            while (i<=n) {
+                const temp=cur;
+                cur=cur+prev;
+                prev=temp;
+                yield;
+                i++;
+            }
+            return cur;
+        }
+    </script>
+</body>
+
+</html>
