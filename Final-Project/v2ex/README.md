@@ -9,26 +9,22 @@ npm run dev
 # or
 yarn dev
 ```
+## Feature
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 夜间模式
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+一键切换夜间和白天模式 通过styled-components使用theme实现
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+### SSR
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+使用nextjs `getServerSideProps` 实现
+### lazyload
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+使用`next/Image`实现，但是出了一些问题，Image无法加载external source的图片，在`next.config.js`加入以下代码后无报错但图片加载失败，目前还在处理图片无法加载的问题
+```
+module.exports = {
+    images: {
+      domains: ['cdn.v2ex.com'],
+    },
+  };
+```

@@ -100,7 +100,7 @@ export default function Post(props) {
   return (
     <>
       <Head>
-        <title> {title} - V2EX</title>
+        <title> {title}</title>
       </Head>
       <PostComponent className="card">
         <div className="title">
@@ -137,7 +137,7 @@ export default function Post(props) {
                 </div>
               </div>
             )
-          })) || <div className="noComments">暂无评论哦🤷🏻‍♂️</div>}
+          })) || <div className="noComments">暂无评论</div>}
       </Comments>
     </>
   )

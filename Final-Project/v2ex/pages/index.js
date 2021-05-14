@@ -47,8 +47,8 @@ const Item = styled.div`
   .Img {
     border-radius: 0.3rem;
     align-self: flex-start;
-    // width: 48px;
-    // height: 48px
+    width: 48px;
+    height: 48px
   }
 
   .info {

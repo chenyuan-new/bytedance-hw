@@ -67,7 +67,7 @@ export default function MyApp({ Component, pageProps }) {
                     type="checkbox"
                     checked={theme === blackTheme ? 'checked' : ''}
                   ></input>
-                  暗黑模式
+                  夜间模式
                 </label>
               </span>
               <Link href="/">
